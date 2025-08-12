@@ -471,17 +471,12 @@ if( is_user_logged_in() ) { ?>
     </header><!-- .header-main-wrap -->
     <section class="dashboard-content-wrap <?php echo esc_attr($dash_main_class); ?>">
         
-        
         <div class="d-flex">
             <div class="order-2">
                 <?php
                 if( houzez_edit_property() ) {
                     get_template_part('template-parts/dashboard/submit/partials/menu-edit-property');
-                } else { 
-                    echo '<div class="menu-edit-property-wrap">';
-                    get_template_part( 'template-parts/dashboard/submit/partials/author');
-                    echo '</div>';
-                }?>
+                } ?>
             </div><!-- order-2 -->
             <div class="order-1 flex-grow-1">
         
@@ -508,7 +503,7 @@ if( is_user_logged_in() ) { ?>
                 </div><!-- dashboard-content-inner-wrap -->
 
             </div><!-- order-1 -->
-        </div><!-- d-flex -->
+        </div>d-flex
         
     </section><!-- dashboard-content-wrap -->
 

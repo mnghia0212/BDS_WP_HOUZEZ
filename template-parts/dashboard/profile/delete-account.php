@@ -1,5 +1,5 @@
 <?php if( ! isset( $_GET['edit_user'] ) ) { ?>
-<div class="dashboard-content-block">
+<div class="dashboard-content-block d-none">
     <div class="row">
         <div class="col-md-3 col-sm-12">
             <h2><?php esc_html_e( 'Delete account', 'houzez' ); ?></h2>

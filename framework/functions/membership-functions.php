@@ -46,16 +46,6 @@ if( !function_exists('houzez_register_user_with_membership') ) {
             }
         }
 
-//         if( houzez_option('header_register') != 1 ) {
-//             echo json_encode( array( 'success' => false, 'msg' => esc_html__('Access denied.', 'houzez') ) );
-//             wp_die();
-//         }
-
-//         if( get_option('users_can_register') != 1 ) {
-//             echo json_encode( array( 'success' => false, 'msg' => esc_html__('Access denied.', 'houzez') ) );
-//             wp_die();
-//         }
-
         if( empty( $username ) ) {
             echo json_encode( array( 'success' => false, 'msg' => esc_html__(' The username field is empty.', 'houzez') ) );
             wp_die();
@@ -93,7 +83,6 @@ if( !function_exists('houzez_register_user_with_membership') ) {
         }
 
         if( empty($is_submit_listing)) {
-            $user_pass = trim(sanitize_text_field(wp_kses($_POST['register_pass'], $allowed_html)));
             $user_pass_retype = trim(sanitize_text_field(wp_kses($_POST['register_pass_retype'], $allowed_html)));
 
             if ($user_pass == '' || $user_pass_retype == '') {

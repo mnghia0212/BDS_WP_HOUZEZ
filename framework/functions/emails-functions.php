@@ -1138,9 +1138,16 @@ if( !function_exists( 'houzez_ele_inquiry_form' ) ) {
         $first_name = isset($_POST['first_name']) ? sanitize_text_field( $_POST['first_name'] ) : '';
         $last_name = isset($_POST['last_name']) ? sanitize_text_field( $_POST['last_name'] ) : '';
 
+		$default_email = 'no-reply@bds1.drabank.com';
         $sender_email = sanitize_email($_POST['email']);
-        $sender_msg = isset($_POST['message']) ? stripslashes( $_POST['message'] ) : '';
         $email_reply_to = is_email($sender_email);
+
+		if (empty($email_reply_to)) {
+			$sender_email = $default_email;
+			$email_reply_to = $default_email;
+		}
+		
+        $sender_msg = isset($_POST['message']) ? stripslashes( $_POST['message'] ) : '';
 
         if( empty($sender_name) ) {
             
@@ -1384,8 +1391,16 @@ if( !function_exists('houzez_property_agent_contact') ) {
             wp_die();
         }
 
+		$default_email = 'no-reply@bds1.drabank.com';
         $sender_email = sanitize_email($_POST['email']);
         $sender_email = is_email($sender_email);
+
+		if (empty($email_reply_to)) {
+			$sender_email = $default_email;
+			$email_reply_to = $default_email;
+		}
+
+
         if (!$sender_email) {
             echo json_encode(array(
                 'success' => false,
@@ -1551,8 +1566,14 @@ if( !function_exists('houzez_schedule_send_message') ) {
             wp_die();
         }*/
 
+		$default_email = 'no-reply@bds1.drabank.com';
         $sender_email = sanitize_email($_POST['email']);
         $sender_email = is_email($sender_email);
+
+		if (empty($email_reply_to)) {
+			$sender_email = $default_email;
+			$email_reply_to = $default_email;
+		}
         if (!$sender_email) {
             echo json_encode(array(
                 'success' => false,

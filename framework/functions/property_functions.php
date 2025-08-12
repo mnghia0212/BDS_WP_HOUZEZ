@@ -325,9 +325,22 @@ if( !function_exists('houzez_submit_listing') ) {
                 update_user_meta( $userID, 'user_submitted_without_membership', 'yes' );
             }
 
+			// // Add price post meta
+            // if( isset( $_POST['prop_price'] ) ) {
+            //      update_post_meta( $prop_id, 'fave_property_price', sanitize_text_field( $_POST['prop_price'] ) ); 
+
+
+            //     if( isset( $_POST['prop_label'] ) ) {
+            //         update_post_meta( $prop_id, 'fave_property_price_postfix', sanitize_text_field( $_POST['prop_label']) );
+            //     }
+            // }
+
             // Add price post meta
             if( isset( $_POST['prop_price'] ) ) {
-                update_post_meta( $prop_id, 'fave_property_price', sanitize_text_field( $_POST['prop_price'] ) );
+                $prop_price_raw = str_replace('.', '', $_POST['prop_price']);
+				$prop_price = sanitize_text_field($prop_price_raw);
+
+                update_post_meta( $prop_id, 'fave_property_price', $prop_price);
 
                 if( isset( $_POST['prop_label'] ) ) {
                     update_post_meta( $prop_id, 'fave_property_price_postfix', sanitize_text_field( $_POST['prop_label']) );

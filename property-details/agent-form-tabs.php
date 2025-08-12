@@ -1,12 +1,10 @@
 <div class="property-form-tabs-wrap">
 	<div class="property-form-tabs">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs justify-content-center hidden">
         	<li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#tab_tour" role="tab"><span class="tab-title"><?php esc_html_e('Schedule a tour', 'houzez'); ?></span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tab_agent_form" role="tab"><span class="tab-title"><?php esc_html_e('Request Info', 'houzez'); ?></span></a>
-            </li>
+         
         </ul>
         <div class="tab-content">
             <div class="property-form-tabs-tab-pane tab-pane fade show active" id="tab_tour" role="tabpanel">
